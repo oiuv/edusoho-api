@@ -1,7 +1,6 @@
 {
     "name": "oiuv/edusoho-api",
     "description": "EduSoho网校API",
-    "type": "library",
     "require": {
         "php": ">=5.6",
         "guzzlehttp/guzzle": "~6.0"
@@ -17,6 +16,5 @@
             "name": "Xuefeng",
             "email": "i@oiuv.cn"
         }
-    ],
-    "minimum-stability": "dev"
+    ]
 }
