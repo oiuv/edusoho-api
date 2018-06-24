@@ -3,7 +3,7 @@
  * [EduSoho API](http://developer.edusoho.com/api/)
  * Date: 2018-06-23
  * @author xuefeng <i@oiuv.cn>
- * @version 1.0
+ * @version 1.0.1
  */
 
 namespace Oiuv\EduSohoApi;
@@ -15,15 +15,17 @@ class ES
 {
 
     private $headers;
+    private $debug;
 
     /**
      * HTTP 客户端
      */
     private $client;
 
-    public function __construct($base_uri, $token = '', $username = '', $password = '')
+    public function __construct($base_uri, $token = '', $username = '', $password = '', $debug = 0)
     {
         $this->client = new Client(['base_uri' => $base_uri]);
+        $this->debug = $debug;
         if ($token) {
             $this->headers = [
                 'X-Auth-Token'  => trim($token),
@@ -59,8 +61,10 @@ class ES
             ]);
             return $response->getBody()->getContents();
         } catch (GuzzleException $exception) {
-            //return $exception->getCode();
-            return $exception->getMessage();
+            if ($this->debug)
+                return $exception->getMessage();
+            else
+                return $exception->getCode();
         }
     }
 
@@ -117,7 +121,7 @@ class ES
         return $response;
     }
 
-    /*
+    /**
      * todo 查询用户
      */
     public function users($identifyType, $data)
@@ -129,7 +133,7 @@ class ES
         return $response;
     }
 
-    /*
+    /**
      * todo 获取分类树
      */
     public function categories($groupCode)
@@ -207,8 +211,10 @@ class ES
         return $response;
     }
 
-    /*
+    /**
      * todo 加入教学计划，成为学员
+     * @param int|string $courseId 课程计划ID
+     * @return string
      */
     public function member($courseId)
     {
@@ -440,7 +446,7 @@ class ES
         return $response;
     }
 
-    /*
+    /**
      * todo 加入班级
      * @param int $classroomId 班级ID
      * @return string
@@ -451,7 +457,7 @@ class ES
         return $response;
     }
 
-    /*
+    /**
     * todo 营销平台加入班级
     * @param int $classroomId 班级ID
     * @return string
