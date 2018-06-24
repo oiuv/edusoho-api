@@ -1,0 +1,22 @@
+{
+    "name": "oiuv/edusoho-api",
+    "description": "EduSoho网校API",
+    "type": "library",
+    "require": {
+        "php": ">=5.6",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Oiuv\\EduSohoApi\\": "src"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Xuefeng",
+            "email": "i@oiuv.cn"
+        }
+    ],
+    "minimum-stability": "dev"
+}
