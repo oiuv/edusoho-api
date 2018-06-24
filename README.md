@@ -72,7 +72,7 @@ echo $es->courseSets();
 
 //按条件获取课程列表
 $data = [
-	'type'   => 'normal', //教学计划类型:normal,live
+    'type'   => 'normal', //教学计划类型:normal,live
     'title'  => '音乐', //课程标题
     'sort'   => '-studentNum', //排序方式'createdTime','updatedTime','recommendedSeq','hitNum','recommendedTime','rating','studentNum'，-field代表倒序
     'offset' => 0,
@@ -102,7 +102,7 @@ echo $es->courses();
 
 //按条件获取教学计划列表
 $data = [
-	'type'   => 'live', //教学计划类型:normal,live
+    'type'   => 'live', //教学计划类型:normal,live
     'title'  => '音乐', //课程标题
     'sort'   => '-studentNum', //排序方式'createdTime','updatedTime','recommendedSeq','hitNum','recommendedTime','rating','studentNum'，-field代表倒序
     'offset' => 0,
@@ -113,7 +113,7 @@ echo $es->courses($data);
 //根据课程ID获取课程已发布的教学计划信息
 echo $es->courseSet(1234);
 
-//根据课程ID获取教学计划学员学习信息
+//根据课程计划ID获取教学计划学员学习信息
 echo $es->courseMembers(1234);
 
 //需要认证
