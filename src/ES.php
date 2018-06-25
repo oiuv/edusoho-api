@@ -3,7 +3,7 @@
  * [EduSoho API](http://developer.edusoho.com/api/)
  * Date: 2018-06-23
  * @author xuefeng <i@oiuv.cn>
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 namespace Oiuv\EduSohoApi;
@@ -122,14 +122,17 @@ class ES
     }
 
     /**
-     * todo 查询用户
+     * 查询用户
+     * @param string $identifyType 标示类型 {nickname,id,email,mobile,token}
+     * @param string $value 用户标示类型对应的数据
+     * @return string
      */
-    public function users($identifyType, $data)
+    public function users($identifyType, $value)
     {
         $data = [
-            'identifyType' => $data
+            'identifyType' => $identifyType
         ];
-        $response = $this->client('GET', "users/$identifyType", $data);
+        $response = $this->client('GET', "users/$value", $data);
         return $response;
     }
 
@@ -212,7 +215,7 @@ class ES
     }
 
     /**
-     * todo 加入教学计划，成为学员
+     * 加入教学计划，成为学员，测试免费课可以，收费课不能直接加，
      * @param int|string $courseId 课程计划ID
      * @return string
      */
@@ -415,7 +418,7 @@ class ES
      * @param int|array $data 班级ID|班级查询参数数组
      * @return string
      */
-    public function classroom($data = [])
+    public function classrooms($data = [])
     {
         if (is_array($data))
             $response = $this->client('GET', "classrooms", $data);
@@ -447,7 +450,7 @@ class ES
     }
 
     /**
-     * todo 加入班级
+     * 加入班级
      * @param int $classroomId 班级ID
      * @return string
      */
