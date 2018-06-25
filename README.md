@@ -161,13 +161,13 @@ echo $es->courseSetReviews($courseSetId);
 
 ```
 
-> 学习进度
+> 学习进度(需要用户认证)
 ```php
 //获取我的教学计划下的学习进度
 echo $es->myCourseLearningProgress($courseId);
 ```
 
-> 课程收藏
+> 课程收藏(需要认证用户)
 ```php
 //我收藏的课程
 echo $es->myFavoriteCourseSets();
@@ -182,14 +182,14 @@ echo $es->favoriteCourseSet($courseSetId);
 echo $es->delFavoriteCourseSet($courseSetId);
 ```
 
-> 退出
+> 退出(需要认证用户)
 ```php
 //退出计划
 echo $es->exitCourse($courseId, $reason = '');
 
 ```
 
-> 事件
+> 事件(需要认证用户)
 ```php
 //学习任务{envet:doing,finish}
 echo $es->taskEvent($courseId, $taskId, $event, $lastTime);
