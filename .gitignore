@@ -1,5 +1,8 @@
+/build
+/cache
 /tests
 /vendor
 /.idea
+*.cache
 .DS_Store
 composer.lock
